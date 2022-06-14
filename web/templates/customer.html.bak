@@ -1,0 +1,18 @@
+{% extends "Base.html" %}
+
+{% block title %}
+    會員專區
+{% endblock %}
+
+
+{% block Content %}
+	
+	<div style="clear:both;height:150px;">
+	</div>
+	
+	<a href='/cusUpdate/'>修改密碼</a>
+	<p></p>
+	<a href=''>修改個人資料'</a>
+	<p></p>
+
+{% endblock %}

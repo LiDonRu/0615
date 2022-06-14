@@ -1,0 +1,23 @@
+.col-md-9{
+	margin-left:35%;
+}
+
+.form-group{
+	margin:2%;
+}
+
+.form-control{
+	border:1px solid #ccc;
+	border-radius: 4px;
+	padding:0.5em 0.6em;
+	font-size:100%;
+	line-height:1.15;
+	width:400px;
+}
+
+.btn theme_btn button_hover{
+	background-color:#0000ff;/* 給按鈕顏色 */
+	color:#ffffff;
+	padding:0.5em 1em;
+	border: transparent;
+}

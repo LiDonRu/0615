@@ -1,0 +1,63 @@
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+# Create your views here.
+
+from .models import Customer
+
+
+def customer(request):
+    
+    if 'username' in request.POST:
+        username = request.POST['username']
+        sex = request.POST['sex']
+        birthday = request.POST['birthday']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        address = request.POST['address']
+        password = request.POST['pwd']
+        
+        Customer.objects.create(name=username,sex=sex,birthday=birthday,email=email,phone=phone,address=address,password=password)
+    if request.session.get('Ulogined',False) : #若使用者已登入時，轉到customer
+        return render(request,'customer.html')
+         
+    else:  
+        return HttpResponseRedirect('/login/') #未登入時，轉到login
+
+
+
+def cusUpdate(request):
+
+    if 'password' in request.POST:
+
+        cid = request.POST['cid']
+        pwd = request.POST['password']
+        
+        obj = Customer.objects.get(id=cid)
+        obj.password = pwd
+
+        obj.save()
+
+    return render(request,'updateCus.html')    
+    
+    def login(request):
+        if 'username' in request.POST:
+            user = request.POST['username'] #使用者Email
+            pwd = request.POST['password']  #使用者密碼
+            
+            #如果你要用get時，資料庫中一定要有這個資料才可以
+            #不然會發生例外(不建議這樣做)
+            #obj = Customer.objects.get(email=user,password=pwd)
+            
+            
+            obj = Customer.objects.filter(email=user,password=pwd).count()
+            if obj > 0 :
+                request.session['Ulogined'] = True  #Session將使用者資料
+                
+                return HttpResponseRedirect('/') #這裡做跳轉
+            else:
+                return render(request,'login.html')
+                
+        else:
+            if request.session.get('Ulogined',False) :
+                del request.session['Ulogined']
+            return render(request,'login.html')

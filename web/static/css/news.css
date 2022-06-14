@@ -1,0 +1,29 @@
+.newsArea{
+
+	clear:both;
+	padding: 2%;
+	
+	/* 註解
+	padding 內距
+	margin 外距
+	*/
+
+}
+
+.newsImg{
+	float: left;
+	width: 150px;
+
+}
+
+.newsImg img {
+	
+	width: 100%;
+
+}
+
+.newsTitle{
+	float: left;
+	width: 400px;
+
+}

@@ -1,0 +1,50 @@
+body{
+	margin:0; /* 外距設為 0 */
+	font-family:微軟正黑體,sans-serif;
+	font-size:18px;
+}
+#banner{
+	height:70px;
+	width:100%;
+	background-color:#044996;
+}
+
+#logo{
+	width: 100px;
+	float:left;
+	padding:0.5%;
+}
+#logo img{
+	width: 100%;
+}
+
+#menu{
+	float:left;
+	
+}
+
+#menu a{
+	color:#ffffff;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight:bold; /*粗體*/
+}
+
+#menu li{
+	
+	list-style: none;
+	float:left;
+	/* padding:2em; 上下左右內距 2em */
+	padding-left:2em;
+	padding-right:2em;
+}
+
+#footer{
+	background-color: #000000;
+	margin-top:100px;/* 外距，top: 上面 */
+	height: 60px;
+	width: 100%;
+	color:#ffffff;
+	text-align: center;
+	clear:both;
+}

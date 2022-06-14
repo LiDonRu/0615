@@ -1,0 +1,24 @@
+.text-center{
+	margin-left:40%;
+}
+
+.form-group{
+	margin-left:40%;
+	padding:10px;
+}
+
+.row{
+	clear:both;
+	width:100%;
+}
+
+
+.col-md-4{
+	width:23%;
+	float:left;
+}
+
+
+.col-md-4 img{
+	width:100%;
+}

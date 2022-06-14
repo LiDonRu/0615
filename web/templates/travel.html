@@ -1,0 +1,44 @@
+{% extends "BasePage.html" %}
+{% block title %}
+旅行景點
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/travel.css/" />
+{% endblock %}
+
+{% block mainContent %}
+		
+		<div style="height:60px;margin:30px;">
+			<form active='' method='get'><!--get明碼 -->
+				景點:<input type='text' name='area'/>
+				<p></p>
+				最低價格:<input type='text' name='startP'/> ~ 最高價格:<input type='text' name='endP'/>
+				<p></p>
+				<input type='submit' value='查詢' />
+			</form>
+		</div>
+		<div class="travelArea">
+			
+			{% for row in travel_list %}
+				<div class="info">
+					<img src="{{row.photo_url}}">
+					<p>{{row.title}}</p>
+					<span>NT:{{row.discount}}</span>
+				</div>
+			{% endfor %}
+			
+		</div>
+		
+		<div style="clear:both; height:60px; padding:100px; text-align:center;">
+			{% if travel_list.has_previous %}<!--假如有上一頁-->
+				<a href="?page={{travel_list.previous_page_number}}&area={{area}}&startP={{startP}}&endP={{endP}}">上一頁</a>
+				<!--前面有 ?代表傳給自己-->
+			{% endif %}
+				
+			{% if travel_list.has_next %}
+				<a href="?page={{travel_list.next_page_number}}&area={{area}}&startP={{startP}}&endP={{endP}}">下一頁</a>
+			{% endif %}
+			
+		</div>
+{% endblock %}
